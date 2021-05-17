@@ -61,7 +61,7 @@ app.layout = (html.Div([dbc.Row([
                 n_submit=0,
                 autoFocus=True,
                 value='',
-                style={'width': '100%%', 'text-align': 'left', 'border-radius': 4},
+                style={'width': '100%%', 'text-align': 'left', 'border-radius': 4, 'font-family': 'Verdana'},
 
             ),
             width={'size': 2, 'offset': 1, 'text-align': 'center'}
@@ -69,7 +69,7 @@ app.layout = (html.Div([dbc.Row([
         dbc.Col(
             html.Button(id='add-button', type='submit', n_clicks=0, n_clicks_timestamp=-1, children="Increment Count",
                         style={'background-colour': 'white', "width": '80%',
-                               'border-radius': 4}),
+                               'border-radius': 4, 'font-family': 'Verdana'}),
             width={'size': 3}
         ),
     ]),
@@ -87,7 +87,7 @@ app.layout = (html.Div([dbc.Row([
                 n_submit=0,
                 autoFocus=False,
                 value='',
-                style={'width': '100%%', 'text-align': 'left', 'horizontalAlign':'left', 'border-radius': 4},
+                style={'width': '100%%', 'text-align': 'left', 'horizontalAlign':'left', 'border-radius': 4, 'font-family': 'Verdana'},
 
             ),
             width={'size': 2, 'offset': 1, 'text-align': 'center'}
@@ -96,7 +96,7 @@ app.layout = (html.Div([dbc.Row([
             html.Button(id='get-button', type='submit', n_clicks=0, children="Get Count",
                         style={"width": '50%',
                         'horizontalAlign':'left',
-                               'border-radius': 4}),
+                               'border-radius': 4, 'font-family': 'Verdana'}),
             width={'size': 3}
         ),
         dbc.Col(
@@ -115,10 +115,10 @@ app.layout = (html.Div([dbc.Row([
                 n_submit=0,
                 autoFocus=False,
                 value='0',
-                style={'width': '80%', 'text-align': 'left', 'border-radius': 4,'horizontalAlign':'left'},
+                style={'width': '100%', 'text-align': 'left', 'border-radius': 4,'horizontalAlign':'left', 'font-family': 'Verdana'},
 
             ),
-            width={'size': 1, 'offset': 0, 'text-align': 'center', "width": '30%'}
+            width={'size': 1, 'offset': 0, 'text-align': 'center', "width": '30%','horizontalAlign':'left'}
         ),
     ])
 ]))
