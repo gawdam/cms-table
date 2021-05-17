@@ -70,7 +70,7 @@ app.layout = (html.Div([dbc.Row([
             html.Button(id='add-button', type='submit', n_clicks=0, n_clicks_timestamp=-1, children="Increment Count",
                         style={'background-colour': 'white', "width": '80%',
                                'border-radius': 4}),
-            width={'size': 2}
+            width={'size': 3}
         )
     ]
     ),
@@ -96,7 +96,7 @@ app.layout = (html.Div([dbc.Row([
             html.Button(id='get-button', type='submit', n_clicks=0, children="Get Count",
                         style={"width": '80%',
                                'border-radius': 4}),
-            width={'size': 2}
+            width={'size': 3}
         )
 
     ]),
@@ -105,7 +105,7 @@ app.layout = (html.Div([dbc.Row([
         dbc.Col(
             html.Pre(id='Count-text', children="Count =",
                      style={"width": '100%', 'border-radius': 4, 'font-size': '20px', 'font-family': 'Verdana'}),
-            width={'size': 1, 'offset': 1}
+            width={'size': 3, 'offset': 1}
         ),
         dbc.Col(
             dcc.Input(
@@ -121,7 +121,7 @@ app.layout = (html.Div([dbc.Row([
                 style={'width': '30%%', 'text-align': 'left', 'border-radius': 4},
 
             ),
-            width={'size': 1, 'offset': 0, 'text-align': 'center', "width": '30%'}
+            width={'size': 2, 'offset': 0, 'text-align': 'center', "width": '30%'}
         ),
     ])
 ]))
