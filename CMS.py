@@ -9,9 +9,9 @@ from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 import os
 
-app = dash.Dash(__name__,external_stylesheets=[dbc.themes.COSMO])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
 server = app.server
-server.secret_key = os.environ.get('SECRET_KEY','my-secret-key')
+server.secret_key = os.environ.get('SECRET_KEY', 'my-secret-key')
 w = 10
 h = 4
 # ---------------------------------------------------------------
@@ -44,7 +44,7 @@ app.layout = (html.Div([dbc.Row([
                 }]
                 ,
                 row_deletable=False,
-                style_cell={'width':'7.5%','textAlign': 'center'}
+                style_cell={'width': '7.5%', 'textAlign': 'center'}
             ), width={'size': 10, 'offset': 1})
 
     ], className='row-table'),
@@ -68,7 +68,7 @@ app.layout = (html.Div([dbc.Row([
         ),
         dbc.Col(
             html.Button(id='add-button', type='submit', n_clicks=0, n_clicks_timestamp=-1, children="Increment Count",
-                        style={'background-colour': 'white', "width": '80%',
+                        style={'background-colour': 'white', "width": '100%',
                                'border-radius': 4, 'font-family': 'Verdana'}),
             width={'size': 3}
         ),
@@ -87,21 +87,23 @@ app.layout = (html.Div([dbc.Row([
                 n_submit=0,
                 autoFocus=False,
                 value='',
-                style={'width': '100%%', 'text-align': 'left', 'horizontalAlign':'left', 'border-radius': 4, 'font-family': 'Verdana'},
+                style={'width': '100%%', 'text-align': 'left', 'horizontalAlign': 'left', 'border-radius': 4,
+                       'font-family': 'Verdana'},
 
             ),
             width={'size': 2, 'offset': 1, 'text-align': 'center'}
         ),
         dbc.Col(
             html.Button(id='get-button', type='submit', n_clicks=0, children="Get Count",
-                        style={"width": '50%',
-                        'horizontalAlign':'left',
+                        style={"width": '100%',
+                               'horizontalAlign': 'left',
                                'border-radius': 4, 'font-family': 'Verdana'}),
             width={'size': 3}
         ),
         dbc.Col(
             html.Pre(id='Count-text', children="Count =",
-                     style={"width": '100%', 'border-radius': 4, 'font-size': '20px', 'font-family': 'Verdana', 'horizontalAlign':'right'}),
+                     style={"width": '100%', 'border-radius': 4, 'font-size': '20px', 'font-family': 'Verdana',
+                            'horizontalAlign': 'right'}),
             width={'size': 2, 'offset': 0}
         ),
         dbc.Col(
@@ -115,10 +117,11 @@ app.layout = (html.Div([dbc.Row([
                 n_submit=0,
                 autoFocus=False,
                 value='0',
-                style={'width': '100%', 'text-align': 'left', 'border-radius': 4,'horizontalAlign':'left', 'font-family': 'Verdana'},
+                style={'width': '100%', 'text-align': 'left', 'border-radius': 4, 'horizontalAlign': 'left',
+                       'font-family': 'Verdana'},
 
             ),
-            width={'size': 1, 'offset': 0, 'text-align': 'center', "width": '30%','horizontalAlign':'left'}
+            width={'size': 1, 'offset': 0, 'text-align': 'center', "width": '30%', 'horizontalAlign': 'left'}
         ),
     ])
 ]))
@@ -142,14 +145,14 @@ def update_output(df, num_submit, num_click, input_value):
             index = mmh3.hash(input_value, i) % w
             df[i][str(index + 1)] = df[i][str(index + 1)] + 1
             style_data_conditional.append({
-            'if': {
-                'row_index': i,
-                'column_id': '{}'.format(index+1)
-            },
-            'color': 'tomato',
-            'backgroundColor':'#DDDDDD',
-            'fontWeight': 'bold'
-        },)
+                'if': {
+                    'row_index': i,
+                    'column_id': '{}'.format(index + 1)
+                },
+                'color': 'tomato',
+                'backgroundColor': '#DDDDDD',
+                'fontWeight': 'bold'
+            }, )
         return df, style_data_conditional, 0, 0, ''
     return df, style_data_conditional, num_submit, num_click, input_value
 
