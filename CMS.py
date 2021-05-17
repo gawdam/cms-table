@@ -1,7 +1,6 @@
 import pandas as pd
 import sys
 import mmh3
-
 import dash
 import dash_table
 import dash_core_components as dcc
@@ -15,7 +14,6 @@ server = app.server
 w = 10
 h = 3
 # ---------------------------------------------------------------
-# Taken from https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases
 dff = pd.DataFrame(pd.DataFrame([[i + 1] + [0] * w for i in range(h)]))
 
 dff = dff.rename({0: 'Hash Functions'}, axis=1)
