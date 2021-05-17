@@ -9,8 +9,8 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 
-app = dash.Dash(__name__, update_title="Please wait. It takes a while to load...",
-                external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__,external_stylesheets=[dbc.themes.COSMO])
+server = app.server
 w = 10
 h = 3
 # ---------------------------------------------------------------

@@ -1,1 +1,1 @@
-web: gunicorn CMS: server
+web: gunicorn CMS:server
