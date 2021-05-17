@@ -7,10 +7,11 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
+import os
 
 app = dash.Dash(__name__,external_stylesheets=[dbc.themes.COSMO])
 server = app.server
-
+server.secret_key = os.environ.get('SECRET_KEY','my-secret-key')
 w = 10
 h = 3
 # ---------------------------------------------------------------
