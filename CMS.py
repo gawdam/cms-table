@@ -35,8 +35,7 @@ app.layout = (html.Div([dbc.Row([
                     dff.columns
                 ],
                 editable=False,
-                style_data_conditional=[]
-                ,
+                style_data_conditional=[],
                 style_cell_conditional=[{
                     'if': {'column_id': 'Hash Functions'},
                     'width': '10%',
@@ -102,8 +101,8 @@ app.layout = (html.Div([dbc.Row([
         ),
         dbc.Col(
             html.Pre(id='Count-text', children="Count =",
-                     style={"width": '100%', 'border-radius': 4, 'font-size': '20px', 'font-family': 'Verdana', 'horizontalAlign':'left'}),
-            width={'size': 3, 'offset': 1}
+                     style={"width": '100%', 'border-radius': 4, 'font-size': '20px', 'font-family': 'Verdana', 'horizontalAlign':'right'}),
+            width={'size': 2, 'offset': 0}
         ),
         dbc.Col(
             dcc.Input(
