@@ -13,7 +13,7 @@ app = dash.Dash(__name__,external_stylesheets=[dbc.themes.COSMO])
 server = app.server
 server.secret_key = os.environ.get('SECRET_KEY','my-secret-key')
 w = 10
-h = 3
+h = 4
 # ---------------------------------------------------------------
 dff = pd.DataFrame(pd.DataFrame([[i + 1] + [0] * w for i in range(h)]))
 
@@ -35,7 +35,8 @@ app.layout = (html.Div([dbc.Row([
                     dff.columns
                 ],
                 editable=False,
-                style_data_conditional=[],
+                style_data_conditional=[]
+                ,
                 style_cell_conditional=[{
                     'if': {'column_id': 'Hash Functions'},
                     'width': '10%',
@@ -71,10 +72,10 @@ app.layout = (html.Div([dbc.Row([
                         style={'background-colour': 'white', "width": '80%',
                                'border-radius': 4}),
             width={'size': 3}
-        )
-    ]
-    ),
+        ),
+    ]),
     html.Br(),
+
     dbc.Row([
         dbc.Col(
             dcc.Input(
@@ -87,24 +88,21 @@ app.layout = (html.Div([dbc.Row([
                 n_submit=0,
                 autoFocus=False,
                 value='',
-                style={'width': '100%%', 'text-align': 'left', 'border-radius': 4},
+                style={'width': '100%%', 'text-align': 'left', 'horizontalAlign':'left', 'border-radius': 4},
 
             ),
             width={'size': 2, 'offset': 1, 'text-align': 'center'}
         ),
         dbc.Col(
             html.Button(id='get-button', type='submit', n_clicks=0, children="Get Count",
-                        style={"width": '80%',
+                        style={"width": '50%',
+                        'horizontalAlign':'left',
                                'border-radius': 4}),
             width={'size': 3}
-        )
-
-    ]),
-    html.Br(),
-    dbc.Row([
+        ),
         dbc.Col(
             html.Pre(id='Count-text', children="Count =",
-                     style={"width": '100%', 'border-radius': 4, 'font-size': '20px', 'font-family': 'Verdana'}),
+                     style={"width": '100%', 'border-radius': 4, 'font-size': '20px', 'font-family': 'Verdana', 'horizontalAlign':'left'}),
             width={'size': 3, 'offset': 1}
         ),
         dbc.Col(
@@ -118,10 +116,10 @@ app.layout = (html.Div([dbc.Row([
                 n_submit=0,
                 autoFocus=False,
                 value='0',
-                style={'width': '30%%', 'text-align': 'left', 'border-radius': 4},
+                style={'width': '80%', 'text-align': 'left', 'border-radius': 4,'horizontalAlign':'left'},
 
             ),
-            width={'size': 2, 'offset': 0, 'text-align': 'center', "width": '30%'}
+            width={'size': 1, 'offset': 0, 'text-align': 'center', "width": '30%'}
         ),
     ])
 ]))
@@ -169,11 +167,33 @@ def update_output(df, num_submit, num_click, input_value):
 )
 def update_output(df, input_submit, button_submit, count_value, input_value):
     minimum = sys.maxsize
+    # x_pos = 0
+    # y_pos = 0
     if ((input_submit and input_value) or button_submit) and input_value != '':
         for i in range(h):
             index = mmh3.hash(input_value, i) % w
             if df[i][str(index + 1)] < minimum:
                 minimum = df[i][str(index + 1)]
+                # x_pos = index
+                # y_pos = i
+        #     style_data_conditional.append({
+        #         'if': {
+        #             'row_index': i,
+        #             'column_id': '{}'.format(index + 1)
+        #         },
+        #         'color': 'tomato',
+        #         'backgroundColor': '#DDDDDD',
+        #         'fontWeight': 'bold'
+        #     }, )
+        # # style_data_conditional.append({
+        #     'if': {
+        #         'row_index': y_pos,
+        #         'column_id': '{}'.format(x_pos + 1)
+        #     },
+        #     'color': 'red',
+        #     'backgroundColor': '#39CCCC',
+        #     'fontWeight': 'bold'
+        # }, )
         count_value = minimum
         num_submit = 0
         input_submit = 0
