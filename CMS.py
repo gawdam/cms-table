@@ -10,6 +10,8 @@ import dash_bootstrap_components as dbc
 
 app = dash.Dash(__name__,external_stylesheets=[dbc.themes.COSMO])
 server = app.server
+server.secret_key = os.environ.get(‘SECRET_KEY’, ‘my-secret-key’)
+
 
 w = 10
 h = 3
