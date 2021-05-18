@@ -26,7 +26,7 @@ app.layout = html.Div([
     html.Div([dbc.Row([
         html.Br(),
         dbc.Col(html.Pre(id="title", children="Count Min Sketch",
-                         style={'text-align': 'center', 'font-size': '150%', 'font-family': 'Verdana'}), )]),
+                         style={'text-align': 'center', 'font-size': '150%', "font-weight":'bold'}), )]),
         html.Br(),
         dbc.Row([
             dbc.Col(
@@ -73,7 +73,7 @@ app.layout = html.Div([
             dbc.Col(
                 html.Button(id='add-button', type='submit', n_clicks=0, n_clicks_timestamp=-1,
                             children="Increment Count",
-                            style={'background-colour': 'white', "width": '90%',
+                            style={'background-colour': 'white', "width": '100%',
                                    'border-radius': 4, 'font-family': 'Verdana'}),
                 width={'size': 3}
             ),
@@ -100,7 +100,7 @@ app.layout = html.Div([
             ),
             dbc.Col(
                 html.Button(id='get-button', type='submit', n_clicks=0, children="Get Count",
-                            style={"width": '90%',
+                            style={"width": '100%',
                                    'horizontalAlign': 'left',
                                    'border-radius': 4, 'font-family': 'Verdana'}),
                 width={'size': 3}
@@ -136,7 +136,7 @@ app.layout = html.Div([
         dbc.Row([
             html.Br(),
             dbc.Col(html.Pre(id="title-2", children="Actual Counts:",
-                             style={'text-align': 'left', 'font-size': '150%', 'font-family': 'Verdana'}),
+                             style={'text-align': 'left', 'font-size': '150%',  "font-weight":'bold'}),
                     width={'offset': 1}), ]),
         dbc.Row([
             dbc.Col(
