@@ -43,8 +43,8 @@ app.layout = html.Div([
                     style_cell_conditional=[{
                         'if': {'column_id': 'Hash Functions'},
                         'width': '10%',
-                        'backgroundColor': 'silver',
-                        'color': 'brown',
+                        'backgroundColor': 'grey',
+                        'color': 'white',
                         'font-weight':'bold'
                     }]
                     ,
