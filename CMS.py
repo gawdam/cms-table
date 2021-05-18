@@ -25,7 +25,7 @@ actual_dataframe = pd.DataFrame(columns=['Element', 'Count'])
 app.layout = html.Div([
     html.Div([dbc.Row([
         html.Br(),
-        dbc.Col(html.Pre(id="title", children="Count Min Sketch",
+        dbc.Col(html.Div("Count Min Sketch",id="title",
                          style={'text-align': 'center', 'font-size': '150%', "font-weight":'bold'}), )]),
         html.Br(),
         dbc.Row([
@@ -43,8 +43,9 @@ app.layout = html.Div([
                     style_cell_conditional=[{
                         'if': {'column_id': 'Hash Functions'},
                         'width': '10%',
-                        'backgroundColor': 'grey',
-                        'color': 'white'
+                        'backgroundColor': 'silver',
+                        'color': 'brown',
+                        'font-weight':'bold'
                     }]
                     ,
                     row_deletable=False,
@@ -135,9 +136,9 @@ app.layout = html.Div([
         html.Br(),
         dbc.Row([
             html.Br(),
-            dbc.Col(html.Pre(id="title-2", children="Actual Counts:",
-                             style={'text-align': 'left', 'font-size': '150%',  "font-weight":'bold'}),
-                    width={'offset': 1}), ]),
+            dbc.Col(html.Div("Actual Counts",id="title-2",
+                             style={'text-align': 'center', 'font-size': '150%',  "font-weight":'bold'}),
+                    ), ]),
         dbc.Row([
             dbc.Col(
                 dash_table.DataTable(
@@ -150,7 +151,7 @@ app.layout = html.Div([
                     editable=False,
                     row_deletable=False,
                     style_cell={'width': '50%', 'textAlign': 'center'}
-                ), width={'size': 4, 'offset': 1})
+                ), width={'size': 4, 'offset': 4})
 
         ], className='row-table-2'),
         html.Br()
